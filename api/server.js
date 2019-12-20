@@ -10,8 +10,13 @@ const jokesRouter = require('../jokes/jokes-router.js');
 
 const server = express();
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true
+}
+
 server.use(helmet());
-server.use(cors());
+server.use(cors(corsOptions));
 server.use(express.json());
 
 server.use(
